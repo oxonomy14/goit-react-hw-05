@@ -1,0 +1,18 @@
+.header {
+  background-color: black;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.logo {
+  margin-right: 64px;
+}
+
+.titleLogo {
+  font-size: 32px;
+  color: #fff;
+  text-transform: uppercase;
+}
