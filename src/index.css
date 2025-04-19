@@ -24,6 +24,14 @@ h1 {
   line-height: 1.1;
 }
 
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  padding: 0;
+}
+
 ul {
   list-style: none;
   padding: 0;
@@ -45,9 +53,46 @@ a {
   }
 }
 
+/* Base styles for mobile-first */
+.container {
+  min-width: 320px;
+  max-width: 375px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Tablet */
+@media only screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding: 0 32px;
+  }
+}
+
+/* Desktop */
+@media only screen and (min-width: 1440px) {
+  .container {
+    max-width: 1440px;
+  }
+}
+
 /* -------------------------------------------------------------------------- */
 
-.container-header {
+.wrapper-header {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.wrapper {
+  padding-left: 34px;
+  padding-right: 34px;
+}
+
+section {
+  padding: 32px 0px;
+}
+
+.wrapper-footer {
   padding-left: 24px;
   padding-right: 24px;
 }

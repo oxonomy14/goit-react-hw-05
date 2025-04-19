@@ -1,10 +1,14 @@
 import css from "./MoviesPages.module.css";
+import { useEffect, useState } from "react";
 
 const MoviesPage = () => {
   return (
-    <>
-      <h2>MoviesPage</h2>
-    </>
+    <section>
+      <div className={"container"}>
+        <h2>Movies Page</h2>
+        <p>The best movies today. Enjoy! </p>
+      </div>
+    </section>
   );
 };
 
