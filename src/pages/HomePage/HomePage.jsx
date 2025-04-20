@@ -1,6 +1,6 @@
 import css from "./HomePage.module.css";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import { fetchMovies } from "../../services/tmdb-api";
 import MovieList from "../../components/MovieList/MovieList";
@@ -10,6 +10,8 @@ import GridItem from "../../components/GridItem/GridItem";
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
+
+  const location = useLocation();
 
   useEffect(() => {
     const abortController = new AbortController();
@@ -22,9 +24,9 @@ const HomePage = () => {
       }
     };
     getData(page);
-    return () => {
+    /* return () => {
       abortController.abort();
-    };
+    };*/
   }, [page]);
 
   return (
@@ -34,14 +36,14 @@ const HomePage = () => {
           <h2 className={css.titleHome}>Trend movies today</h2>
           <p className={css.descriptionHome}>
             Discover the most popular and top-rated movies trending today, Dive
-            into the stories everyone is talking about!{" "}
+            into the stories everyone is talking about!
           </p>
         </div>
 
         <Grid>
           {movies.map((movie) => (
             <GridItem key={movie.id}>
-              <Link to={`/movies/${movie.id}`}>
+              <Link state={location} to={`/movies/${movie.id}`}>
                 <MovieList movie={movie} />
               </Link>
             </GridItem>
