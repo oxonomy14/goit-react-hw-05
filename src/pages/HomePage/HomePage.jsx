@@ -4,8 +4,6 @@ import { Link, useLocation } from "react-router-dom";
 
 import { fetchMovies } from "../../services/tmdb-api";
 import MovieList from "../../components/MovieList/MovieList";
-import Grid from "../../components/Grid/Grid";
-import GridItem from "../../components/GridItem/GridItem";
 
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
@@ -39,16 +37,7 @@ const HomePage = () => {
             into the stories everyone is talking about!
           </p>
         </div>
-
-        <Grid>
-          {movies.map((movie) => (
-            <GridItem key={movie.id}>
-              <Link state={location} to={`/movies/${movie.id}`}>
-                <MovieList movie={movie} />
-              </Link>
-            </GridItem>
-          ))}
-        </Grid>
+        <MovieList movies={movies} location={location} />
       </div>
     </section>
   );

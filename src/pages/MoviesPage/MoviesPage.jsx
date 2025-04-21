@@ -4,8 +4,6 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 import { Link, useLocation, useSearchParams } from "react-router-dom";
 import { fetchSearchMovies } from "../../services/tmdb-api";
 import MovieList from "../../components/MovieList/MovieList";
-import Grid from "../../components/Grid/Grid";
-import GridItem from "../../components/GridItem/GridItem";
 
 const MoviesPage = () => {
   const [movieSearch, setMovieSearch] = useState([]);
@@ -43,16 +41,7 @@ const MoviesPage = () => {
       <div className={"container"}>
         <h2>Search movie for enjoy</h2>
         <SearchBar onSearch={handleSearch} />
-
-        <Grid>
-          {movieSearch.map((movie) => (
-            <GridItem key={movie.id}>
-              <Link state={location} to={`/movies/${movie.id}`}>
-                <MovieList movie={movie} />
-              </Link>
-            </GridItem>
-          ))}
-        </Grid>
+        <MovieList movies={movieSearch} location={location} />
       </div>
     </section>
   );
